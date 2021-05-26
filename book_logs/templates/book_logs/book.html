@@ -17,7 +17,7 @@
       </div>
       <div class="grid gap-x-5 gap-y-2 grid-cols-3 pl-8">
             {% for entry in entries %}
-              <div class="bg-yellow-300 max-w-md py-4 px-8 shadow-lg rounded-lg my-20 mr-5 items-center">
+              <div class="bg-yellow-200 max-w-md py-4 px-8 shadow-lg rounded-lg my-20 mr-5 items-center">
                 <div class="overflow-auto text-gray-800 text-2xl font-semibold">{{ entry.date_added|date:'M d, Y H:i' }}</div>
                 <div class="text-gray-700 text-base flex-1 font-semibold">{{ entry.text|linebreaks }}</div>
                 <div class="px-6 pt-4 pb-2 flex flex-row-reverse">
