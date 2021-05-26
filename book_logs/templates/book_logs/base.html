@@ -1,0 +1,55 @@
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.min.css' %}" >
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body class="bg-green-100">
+    <nav class="flex items-center justify-between flex-wrap p-6 bg-gradient-to-r rounded-b-md from-green-400 to-green-200 hover:from-pink-500 hover:to-yellow-500">
+        <div class="flex items-center flex-shrink-0 text-black mr-6">
+            <a href="{% url 'book_logs:index' %}" class="font-semibold text-3xl tracking-tight">
+                Archiviste
+            </a>
+        </div>
+
+
+        {% if user.is_authenticated %}
+            <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto font-semibold">
+<!--                <p>Hello, {{ user.username }}!</p>-->
+                <div class="text-xl lg:flex-grow">
+                    <a href="{% url 'book_logs:books' %}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                        books
+                    </a>
+                </div>
+            </div>
+            <div>
+                <a href="{% url 'users:logout' %}" class="inline-block text-md px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
+                    log out
+                </a>
+            </div>
+        {% else %}
+        <div class="flex justify-between">
+            <div class="mr-3 md:mr-4">
+                <a href="{% url 'users:login' %}" class="inline-block text-md px-4 py-2 leading-none border rounded text-black border-black hover:border-green-500 hover:text-white hover:bg-transparent mt-4 lg:mt-0">
+                    login
+                </a>
+            </div>
+            <div>
+                <a href="{% url 'users:register' %}" class="inline-block text-md px-4 py-2 leading-none border rounded text-black border-black hover:border-green-500 hover:text-white hover:bg-transparent mt-4 lg:mt-0">
+                    sign up
+                </a>
+            </div>
+        </div>
+        {% endif %}
+    </nav>
+
+
+      {% block content %}
+      {% endblock content %}
+
+</body>
+</html>

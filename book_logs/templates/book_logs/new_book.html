@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% extends "book_logs/base.html" %}
+
+    {% block content %}
+        <p>Add a new book</p>
+
+        <form action="{% url 'book_logs:new_book' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button name="submit">Add Book</button>
+        </form>
+
+    {% endblock content %}
+</body>
+</html>

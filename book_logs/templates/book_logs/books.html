@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+  {% extends "book_logs/base.html" %}
+
+  {% block content %}
+    <div>
+      <div class="bg-gradient-to-r from-blue-400 to-green-200 m-auto bg-opacity-75 text-3xl text-center rounded-br-lg py-3 px-5 shadow-sm w-1/3">
+        <p class="font-semibold text-2xl">let see what you're working on today!</p>
+      </div>
+      <div class="p-5 md:p-6">
+        <ul class="grid gap-x-5 gap-y-1 grid-cols-3">
+          {% for book in books %}
+            <li class="bg-gradient-to-r from-gray-200 to-gray-300 max-w-md py-2 px-6 shadow-lg rounded-lg my-20 mr-5">
+              <div class="flex justify-center md:justify-end -mt-16">
+                <img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src="https://images2.minutemediacdn.com/image/upload/c_crop,h_1151,w_2048,x_0,y_149/f_auto,q_auto,w_1100/v1555274683/shape/mentalfloss/31105585103_4c32392ac1_k.jpg">
+              </div>
+              <a href="{% url 'book_logs:book' book.id %}" class="overflow-auto text-gray-800 text-xl font-semibold">
+                {{ book }}
+              </a>
+              <p class="mt-2 text-gray-600">Click the title to start journaling</p>
+            </li>
+          {% empty %}
+            <li>No books have been added yet</li>
+          {% endfor %}
+        </ul>
+        <div class="m-auto text-center bg-blue-200 rounded-full py-2 px-5 shadow-xl w-1/6">
+          <a href="{% url 'book_logs:new_book' %}" class="text-xl font-semibold">
+            Add
+          </a>
+      </div>
+      </div>
+
+    </div>
+  {% endblock content %}
+
+  <style>
+    .welcome-sentence{
+
+    }
+  </style>
+</body>
+</html>
