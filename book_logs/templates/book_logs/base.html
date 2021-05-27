@@ -8,10 +8,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body class="bg-green-100">
-    <nav class="flex items-center justify-between flex-wrap p-6 bg-gradient-to-r rounded-b-md from-green-400 to-green-200 hover:from-pink-500 hover:to-yellow-500">
-        <div class="flex items-center flex-shrink-0 text-black mr-6">
-            <a href="{% url 'book_logs:index' %}" class="font-semibold text-3xl tracking-tight">
+<body class="bg-blue-300">
+    <nav class="h-12 flex items-center justify-between flex-wrap rounded-b-md bg-black">
+        <div class="flex items-center flex-shrink-0 text-white ml-6 mr-6">
+            <a href="{% url 'book_logs:index' %}" class="font-semibold text-xl tracking-tight">
                 Archiviste
             </a>
         </div>
@@ -20,26 +20,26 @@
         {% if user.is_authenticated %}
             <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto font-semibold">
 <!--                <p>Hello, {{ user.username }}!</p>-->
-                <div class="text-xl lg:flex-grow">
-                    <a href="{% url 'book_logs:books' %}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                <div class="text-lg lg:flex-grow">
+                    <a href="{% url 'book_logs:books' %}" class="font-normal block mt-4 lg:inline-block lg:mt-0 text-white hover:text-blue-300 mr-4">
                         books
                     </a>
                 </div>
             </div>
             <div>
-                <a href="{% url 'users:logout' %}" class="inline-block text-md px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
+                <a href="{% url 'users:logout' %}" class="mr-6 inline-block text-sm px-4 py-2 leading-none bg-blue-300 font-semibold rounded text-black bg-white hover:bg-red-500 hover:text-white hover:bg-white mt-4 lg:mt-0">
                     log out
                 </a>
             </div>
         {% else %}
-        <div class="flex justify-between">
+        <div class="flex justify-between mr-6">
             <div class="mr-3 md:mr-4">
-                <a href="{% url 'users:login' %}" class="inline-block text-md px-4 py-2 leading-none border rounded text-black border-black hover:border-green-500 hover:text-white hover:bg-transparent mt-4 lg:mt-0">
+                <a href="{% url 'users:login' %}" class="bg-blue-300 inline-block text-md px-4 py-2 leading-none rounded text-black font-semibold border-black hover:bg-green-500 mt-4 lg:mt-0">
                     login
                 </a>
             </div>
             <div>
-                <a href="{% url 'users:register' %}" class="inline-block text-md px-4 py-2 leading-none border rounded text-black border-black hover:border-green-500 hover:text-white hover:bg-transparent mt-4 lg:mt-0">
+                <a href="{% url 'users:register' %}" class="bg-blue-300 inline-block text-md px-4 py-2 leading-none rounded text-black font-semibold border-black hover:bg-yellow-400 mt-4 lg:mt-0">
                     sign up
                 </a>
             </div>
