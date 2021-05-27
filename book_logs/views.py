@@ -111,3 +111,15 @@ def edit_entry(request, entry_id):
         'form': form
     }
     return render(request, 'book_logs/edit_entry.html', context=context)
+
+@login_required
+def delete_book(request, book_id):
+    book = Book.objects.get(id=book_id)
+    book.delete()
+    return redirect('book_logs:books')
+
+@login_required
+def delete_entry(request,book_id, entry_id):
+    entry = Entry.objects.get(id=entry_id)
+    entry.delete()
+    return redirect('book_logs:book', book_id=book_id)

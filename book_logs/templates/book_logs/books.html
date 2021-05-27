@@ -22,7 +22,10 @@
               <a href="{% url 'book_logs:book' book.id %}" class="overflow-auto text-gray-800 text-xl font-semibold">
                 {{ book }}
               </a>
-              <p class="mt-2 text-gray-600">Click the title to start journaling</p>
+              <div class="flex justify-between mt-5">
+                <div class="text-gray-600"><a href="{% url 'book_logs:delete_book' book.id %}">Delete</a></div>
+                <div class="text-black"><a href="{% url 'book_logs:book' book.id %}">Continue</a></div>
+              </div>
             </li>
           {% empty %}
             <li>No books have been added yet</li>

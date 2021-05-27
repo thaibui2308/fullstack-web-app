@@ -21,6 +21,7 @@
                 <div class="overflow-auto text-gray-800 text-2xl font-semibold">{{ entry.date_added|date:'M d, Y H:i' }}</div>
                 <div class="text-gray-700 text-base flex-1 font-semibold">{{ entry.text|linebreaks }}</div>
                 <div class="px-6 pt-4 pb-2 flex flex-row-reverse">
+                    <a href="{% url 'book_logs:delete_entry' book.id entry.id%}" class="border-solid inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-normal text-gray-700 mr-2 mb-2">Delete</a>
                     <a href="{% url 'book_logs:edit_entry' entry.id %}" class="border-solid inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                       Update
                     </a>
