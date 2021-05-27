@@ -18,7 +18,7 @@ def books(request):
     # request.user that stores information about the user
     books = Book.objects.filter(owner=request.user).order_by('date_added')
     context = {'books': books}
-    return render(request, 'book_logs/books.html', context)
+    return render(request, 'book_logs/books.html', context=context)
 
 
 @login_required

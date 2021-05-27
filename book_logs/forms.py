@@ -8,6 +8,8 @@ class BookForm(forms.ModelForm):
         model = Book
         fields = ['text']
         labels = {'text': ''}
+        widgets = {'text': forms.Textarea(attrs={'cols': 35,
+                                                 'rows': 5})}
 
 
 class EntryForm(forms.ModelForm):
@@ -16,4 +18,4 @@ class EntryForm(forms.ModelForm):
         fields = ['text']
         labels = {'text': ''}
         # Customizing the input widget for the field
-        widgets = {'text': forms.Textarea(attrs={'cols': 80})}
+        widgets = {'text': forms.Textarea(attrs={'cols': 40})}
