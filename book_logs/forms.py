@@ -15,7 +15,8 @@ class BookForm(forms.ModelForm):
 class EntryForm(forms.ModelForm):
     class Meta:
         model = Entry
-        fields = ['text']
-        labels = {'text': ''}
+        fields = ['text', 'page']
+        labels = {'text': '',
+                  'page': 'Page'}
         # Customizing the input widget for the field
         widgets = {'text': forms.Textarea(attrs={'cols': 40})}

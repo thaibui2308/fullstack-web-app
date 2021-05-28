@@ -18,6 +18,7 @@ class Entry(models.Model):
     """Related to the book being read"""
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     text = models.TextField()
+    page = models.IntegerField()
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:

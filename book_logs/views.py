@@ -28,7 +28,7 @@ def book(request, book_id):
     # Check whether the user's req URL matches with the owner of that data
     if book.owner != request.user:
         raise Http404
-    entries = book.entry_set.order_by('-date_added')
+    entries = book.entry_set.order_by('page')
     context = {
         'book': book,
         'entries': entries
