@@ -9,19 +9,19 @@
 
   {% block content %}
   <div class="content-center w-full">
-      <div class="bg-green-300 m-auto bg-opacity-75 text-3xl text-center rounded-b-lg py-3 px-5 shadow-md w-1/4">
+      <div class="bg-white m-auto bg-opacity-75 text-3xl text-center rounded-b-lg py-3 px-5 shadow-inner w-1/4">
         <p class="font-semibold text-xl">{{ book }}</p>
       </div>
-      <div class="bg-purple-500 mt-4 m-auto text-white hover:bg-purple-400 text-lg text-center rounded-br-lg py-3 px-5 shadow-sm w-1/6">
+      <div class="bg-green-500 mt-4 m-auto text-white hover:bg-purple-400 text-lg text-center rounded-br-lg py-3 px-5 shadow-sm w-1/6">
         <a href="{% url 'book_logs:new_entry' book.id %}" class="m-auto font-semibold text-center">create new note</a>
       </div>
       <div class="grid gap-x-5 gap-y-2 grid-cols-3 pl-8">
             {% for entry in entries %}
-              <div class="bg-yellow-300 max-w-md py-4 px-8 shadow-lg rounded-lg my-20 mr-5 items-center">
+              <div class="bg-gradient-to-r from-yellow-200 to-yellow-300 max-w-md py-4 px-8 shadow-lg rounded-lg my-20 mr-5 items-center">
                 <div class="overflow-auto text-gray-800 text-2xl font-semibold">Page {{ entry.page }}</div>
-                <div class="overflow-ellipsis text-black text-base font-semibold">{{ entry.text|linebreaks }}</div>
+                <div class="overflow-ellipsis text-black text-base font-normal">{{ entry.text|linebreaks }}</div>
                 <div class="px-6 pt-4 pb-2 flex flex-row-reverse">
-                    <a href="{% url 'book_logs:delete_entry' book.id entry.id%}" class="border-solid inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-normal text-gray-700 mr-2 mb-2">Delete</a>
+                    <a href="{% url 'book_logs:delete_entry' book.id entry.id%}" class="border-solid inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-light text-gray-700 mr-2 mb-2">Delete</a>
                     <a href="{% url 'book_logs:edit_entry' entry.id %}" class="border-solid inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                       Update
                     </a>
