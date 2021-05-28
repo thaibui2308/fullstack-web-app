@@ -6,7 +6,7 @@
 </head>
 <body>
   {% extends "book_logs/base.html" %}
-
+  {% load static %}
   {% block content %}
     <div>
       <div class="bg-white m-auto bg-opacity-75 text-3xl text-center shadow-inner rounded-br-lg py-3 px-5 shadow-sm w-1/3">
@@ -17,7 +17,7 @@
           {% for book in books %}
             <li class="bg-white max-w-md py-2 px-6 shadow-lg rounded-lg my-20 mr-5">
               <div class="flex justify-center md:justify-end -mt-16">
-                <img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src="https://images2.minutemediacdn.com/image/upload/c_crop,h_1151,w_2048,x_0,y_149/f_auto,q_auto,w_1100/v1555274683/shape/mentalfloss/31105585103_4c32392ac1_k.jpg">
+                <img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src="{% static 'assets/small-icon.jpg' %}">
               </div>
               <a href="{% url 'book_logs:book' book.id %}" class="overflow-auto text-gray-800 text-xl font-semibold">
                 {{ book }}
